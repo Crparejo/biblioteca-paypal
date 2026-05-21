@@ -1,0 +1,285 @@
+
+<h2 class="sr-only">Biblioteca de scripts de atendimento PayPal — índice interativo com scripts completos</h2>
+<style>
+.cat-btn{font-size:12px;padding:5px 14px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-secondary);cursor:pointer}
+.cat-btn.active{background:#003087;color:#fff;border-color:#003087}
+.script-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-top:12px}
+.script-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;cursor:pointer;transition:border-color .15s}
+.script-card:hover{border-color:var(--color-border-primary)}
+.script-card.active{border:1.5px solid #003087}
+.sc-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.sc-icon{width:32px;height:32px;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.sc-title{font-size:13px;font-weight:500;color:var(--color-text-primary);line-height:1.4}
+.sc-plat{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+.badge{font-size:10px;padding:2px 8px;border-radius:10px}
+.badge-woo{background:#E6F1FB;color:#0C447C}
+.badge-shop{background:#EAF3DE;color:#27500A}
+.badge-custom{background:#FAEEDA;color:#633806}
+.badge-all{background:#EEEDFE;color:#3C3489}
+.sc-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.5;margin-bottom:8px}
+.cause-row{display:flex;align-items:flex-start;gap:6px;padding:3px 0;font-size:11px;color:var(--color-text-secondary)}
+.cause-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.detail-panel{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:16px;margin-top:12px;display:none}
+.detail-panel.open{display:block}
+.tabs{display:flex;gap:6px;margin-bottom:14px;border-bottom:0.5px solid var(--color-border-tertiary);padding-bottom:10px}
+.tab-btn{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-secondary);cursor:pointer}
+.tab-btn.active{background:#003087;color:#fff;border-color:#003087}
+.tab-content{display:none}.tab-content.active{display:block}
+.dp-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:12px}
+.step-list{display:flex;flex-direction:column;gap:8px}
+.step-row{display:flex;gap:10px;align-items:flex-start}
+.step-num{width:22px;height:22px;border-radius:50%;background:#003087;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0;margin-top:1px}
+.step-text{font-size:13px;color:var(--color-text-primary);line-height:1.6}
+.tip-box{background:#EEF4FB;border:0.5px solid #B3CCE8;border-radius:var(--border-radius-md);padding:10px 12px;font-size:12px;color:#0C447C;margin-top:10px;line-height:1.6}
+.warn-box{background:#FAEEDA;border:0.5px solid #E5C97A;border-radius:var(--border-radius-md);padding:10px 12px;font-size:12px;color:#633806;margin-top:8px;line-height:1.6}
+.script-section{margin-bottom:14px}
+.script-section-title{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;color:var(--color-text-tertiary);margin-bottom:6px}
+.plat-block{background:var(--color-background-primary);border-radius:var(--border-radius-md);padding:10px 12px;margin-bottom:8px;border:0.5px solid var(--color-border-tertiary)}
+.plat-title{font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px}
+.plat-item{font-size:12px;color:var(--color-text-secondary);padding:3px 0;line-height:1.5;border-bottom:0.5px solid var(--color-border-tertiary)}
+.plat-item:last-child{border-bottom:none}
+.console-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px}
+.console-table th{background:#003087;color:#fff;padding:6px 8px;text-align:left}
+.console-table td{padding:6px 8px;border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-primary)}
+.checklist{display:flex;flex-direction:column;gap:6px}
+.check-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--color-text-primary)}
+.check-item input{width:16px;height:16px;cursor:pointer;flex-shrink:0}
+.chat-bubble{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px;font-size:12px;color:var(--color-text-primary);line-height:1.7;font-style:italic;margin-bottom:6px;border-left:3px solid #003087}
+</style>
+
+<div style="padding:4px 0">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+    <div>
+      <div style="font-size:15px;font-weight:500;color:var(--color-text-primary)">Biblioteca de Scripts — PayPal Integrações</div>
+      <div style="font-size:12px;color:var(--color-text-secondary);margin-top:2px">Clique no card para ver diagnóstico e script completo</div>
+    </div>
+    <div style="font-size:11px;color:var(--color-text-tertiary);background:var(--color-background-secondary);padding:4px 10px;border-radius:var(--border-radius-md)">6 scripts</div>
+  </div>
+
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px">
+    <button class="cat-btn active" onclick="filtrar('todos',this)">Todos</button>
+    <button class="cat-btn" onclick="filtrar('woo',this)">WooCommerce</button>
+    <button class="cat-btn" onclick="filtrar('shopify',this)">Shopify</button>
+    <button class="cat-btn" onclick="filtrar('custom',this)">Loja própria</button>
+  </div>
+
+  <div class="script-grid" id="grid"></div>
+  <div class="detail-panel" id="detail"></div>
+</div>
+
+<script>
+const S = [
+  {id:1,cat:['woo'],icon:'💱',cor:'#FAEEDA',corT:'#633806',dot:'#BA7517',
+   title:'Erro de moeda — PayPal BR',plat:['woo'],
+   desc:'Conta PayPal BR só aceita BRL. Site em USD gera conflito de moeda.',
+   causas:['WooCommerce configurado em USD','Conta PayPal BR aceita apenas BRL','Compradores internacionais não conseguem pagar'],
+   passos:['Confirmar que a conta PayPal do vendedor é brasileira','Acessar WordPress → WooCommerce → Configurações → Geral','Localizar o campo "Moeda" e alterar de USD para BRL','Salvar alterações e limpar cache do site','Solicitar pagamento de teste para confirmar'],
+   dica:'O PayPal converte BRL automaticamente para a moeda do comprador — clientes internacionais verão o valor em USD na tela de checkout.',
+   aviso:'Não orientar uso de outro gateway. A solução é ajustar a loja para cobrar em BRL.',
+   plats:{
+     woo:['Plugin desatualizado ou desativado','Client ID de Sandbox em produção','Modo de manutenção ativo no site','Cache do site desatualizado — limpar após correção']
+   },
+   console:[],
+   chat:['Identifiquei que o problema está na configuração da moeda da sua loja. Sua conta PayPal Brasil processa pagamentos exclusivamente em BRL. Seu site está configurado para cobrar em USD, o que gera o conflito. A solução é configurar o WooCommerce para cobrar em BRL — o PayPal converte automaticamente para a moeda do comprador no checkout.']
+  },
+  {id:2,cat:['woo','shopify','custom'],icon:'🔘',cor:'#E6F1FB',corT:'#0C447C',dot:'#185FA5',
+   title:'Botão PayPal não aparece',plat:['woo','shopify','custom'],
+   desc:'Botão não renderiza na página. Pode ser Client ID, cache, bloqueador ou conflito.',
+   causas:['Client ID de Sandbox em produção','Bloqueador de anúncios ativo','Plugin desatualizado ou conflito com tema','Container HTML ausente na página'],
+   passos:['Pedir ao cliente para abrir F12 e informar erros em vermelho','Verificar se o Client ID começa com "AU" (Live)','Testar em aba anônima sem extensões','Verificar se o div container existe no HTML','Limpar cache e testar novamente'],
+   dica:'Client ID Sandbox começa com "AY/AT". Client ID Live começa com "AU" — identificação rápida sem acessar o painel.',
+   aviso:null,
+   plats:{
+     woo:['Plugin desatualizado ou desativado','Conflito com tema ou outro plugin','Modo de manutenção ativo'],
+     shopify:['PayPal não habilitado nas configurações de pagamento','Conta PayPal com verificação pendente'],
+     custom:['SDK sem Client ID na URL','app.js carregando antes do SDK','Bloqueador de anúncios bloqueando o SDK']
+   },
+   console:[
+     {erro:'client-id is required',causa:'Client ID não foi passado na URL do SDK'},
+     {erro:'Invalid client_id',causa:'Client ID errado ou de Sandbox em produção'},
+     {erro:'paypal is not defined',causa:'app.js rodou antes do SDK carregar'},
+     {erro:'Cannot render buttons',causa:'Container HTML não encontrado na página'}
+   ],
+   chat:['O botão do PayPal não aparecer pode ter algumas causas. Você consegue abrir o console do navegador (F12) e me informar se há alguma mensagem em vermelho? Isso vai me ajudar a identificar a causa exata rapidamente.']
+  },
+  {id:3,cat:['woo','shopify','custom'],icon:'🔔',cor:'#E1F5EE',corT:'#085041',dot:'#1D9E75',
+   title:'Pagamento aprovado, pedido não atualiza',plat:['woo','shopify','custom'],
+   desc:'PayPal aprovou mas a loja não reconheceu. Problema de Webhook ou IPN.',
+   causas:['URL do IPN/Webhook incorreta ou expirada','Plugin desatualizado','SSL inválido ou expirado','Modo Sandbox ativo em produção'],
+   passos:['Confirmar que o pagamento está aprovado no painel PayPal','Verificar histórico de Webhooks no Developer Dashboard','Checar URL do IPN: /?wc-api=WC_Gateway_PayPal','Verificar se SSL está válido','Confirmar que modo Sandbox está desativado'],
+   dica:'No Developer Dashboard → My Apps → Webhooks, é possível ver o histórico completo e reenviar notificações que falharam.',
+   aviso:null,
+   plats:{
+     woo:['URL do IPN incorreta','Plugin usando API legada','Conflito com plugin de cache bloqueando requisições'],
+     shopify:['E-mail da conta PayPal diferente do cadastrado no Shopify','Conta PayPal desconectada após o pagamento'],
+     custom:['Webhook não implementado no servidor','Servidor não retorna 200 OK','URL do Webhook não é pública (localhost)']
+   },
+   console:[],
+   chat:['O pagamento foi aprovado no PayPal mas sua loja não reconheceu a transação. Isso acontece quando a notificação do PayPal para sua loja é interrompida. Vou verificar a configuração do Webhook/IPN para identificar onde está o problema.']
+  },
+  {id:4,cat:['woo','shopify','custom'],icon:'🔑',cor:'#EEEDFE',corT:'#3C3489',dot:'#534AB7',
+   title:'Client ID inválido / credenciais',plat:['woo','shopify','custom'],
+   desc:'Credenciais incorretas ou de Sandbox em produção.',
+   causas:['Credenciais de Sandbox em produção','Espaço extra ao copiar o Client ID','Client Secret expirado ou regenerado','App sem permissões necessárias'],
+   passos:['Verificar erro no console — "Invalid client_id" ou "401 Unauthorized"','Confirmar credenciais são da aba Live no Developer Dashboard','Apagar e colar o Client ID novamente sem espaços','Verificar se Client Secret foi regenerado recentemente','Confirmar que o app está ativo no Developer Dashboard'],
+   dica:'Client ID Sandbox: começa com "AY" ou "AT". Client ID Live: começa com "AU".',
+   aviso:null,
+   plats:{
+     woo:['Credenciais de Sandbox em campo de produção','Espaço extra ao copiar o Client ID'],
+     shopify:['Conta PayPal não conectada corretamente','Verificação pendente na conta PayPal'],
+     custom:['Client ID hardcoded errado no código','Variável .env não configurada no servidor de produção']
+   },
+   console:[
+     {erro:'Invalid client_id',causa:'Client ID errado ou de Sandbox em produção'},
+     {erro:'401 Unauthorized',causa:'Client Secret inválido ou expirado'},
+     {erro:'PERMISSION_DENIED',causa:'Conta PayPal não ativa ou verificada'}
+   ],
+   chat:['Identifiquei que o problema está nas credenciais de acesso entre sua loja e o PayPal. Para corrigir, acesse developer.paypal.com, vá em My Apps & Credentials, clique no seu app e copie o Client ID da aba Live — não da aba Sandbox. Após substituir na loja, o botão deve aparecer normalmente.']
+  },
+  {id:5,cat:['woo','custom'],icon:'💳',cor:'#FBEAF0',corT:'#72243E',dot:'#993556',
+   title:'Checkout Transparente não funciona',plat:['woo','custom'],
+   desc:'Campos do cartão não aparecem. Conta pode não estar aprovada para Advanced Payments.',
+   causas:['Conta não aprovada para Advanced Card Payments','SDK sem components=card-fields','SSL inválido ou expirado','Conflito com plugin de cache ou minificação'],
+   passos:['Verificar se o botão PayPal padrão funciona — isola o problema','Confirmar que o site tem HTTPS válido','Verificar no Developer Dashboard se Advanced Card Payments está habilitado','Checar se a URL do SDK inclui &components=card-fields','Testar sem plugins de cache ativos'],
+   dica:'Sem aprovação para Advanced Card Payments, os campos do cartão não aparecem independente de qualquer configuração no código.',
+   aviso:'A aprovação pode levar alguns dias. O botão PayPal padrão continua funcionando normalmente enquanto isso.',
+   plats:{
+     woo:['Plugin não suporta Checkout Transparente na versão instalada','Conta não aprovada para Advanced Card Payments','Conflito com plugin de minificação de JS'],
+     custom:['SDK sem &components=card-fields na URL','Containers HTML ausentes na página','3DS não implementado']
+   },
+   console:[
+     {erro:'card is not eligible',causa:'Conta não aprovada para Advanced Card Payments'},
+     {erro:'INSTRUMENT_DECLINED',causa:'Cartão recusado pelo banco emissor'},
+     {erro:'ORDER_NOT_APPROVED',causa:'Autenticação 3DS não completada'}
+   ],
+   chat:['Para aceitar cartões diretamente na sua loja sem redirecionar para o PayPal, sua conta precisa ser aprovada para o recurso Advanced Card Payments. Esse processo é feito pelo PayPal e pode levar alguns dias. Enquanto isso, o botão PayPal padrão continua funcionando normalmente para seus clientes.']
+  },
+  {id:6,cat:['woo','shopify','custom'],icon:'↩️',cor:'#EAF3DE',corT:'#27500A',dot:'#639922',
+   title:'Reembolso não processa',plat:['woo','shopify','custom'],
+   desc:'Reembolso falha pela loja ou painel. Pode ser saldo, prazo, limitação ou ID incorreto.',
+   causas:['Saldo insuficiente na conta PayPal','Transação com mais de 180 dias','Conta com limitação ativa','Order ID sendo usado no lugar do Capture ID'],
+   passos:['Testar reembolso direto pelo painel paypal.com — isola se é conta ou integração','Verificar se a transação tem menos de 180 dias','Confirmar saldo suficiente ou conta bancária vinculada','Verificar limitações em paypal.com → Central de Resolução','Para lojas próprias: confirmar uso do Capture ID e não do Order ID'],
+   dica:'Sempre testar pelo painel do PayPal primeiro. Se falhar lá também, o problema está na conta — não na integração.',
+   aviso:'Após 180 dias o reembolso via PayPal não é possível. Orientar o cliente a verificar outras formas de ressarcimento.',
+   plats:{
+     woo:['Plugin usando Order ID incorreto','Saldo insuficiente na conta PayPal','Conta com limitação ativa'],
+     shopify:['Transação após 180 dias','Pedido arquivado no Shopify','Conta PayPal desconectada'],
+     custom:['Order ID sendo usado no lugar do Capture ID','Valor com formato incorreto — deve ser string com 2 decimais']
+   },
+   console:[
+     {erro:'CAPTURE_NOT_REFUNDABLE',causa:'Transação não pode ser reembolsada — verificar prazo e status'},
+     {erro:'INVALID_TRANSACTION_ID',causa:'Order ID sendo usado no lugar do Capture ID'},
+     {erro:'REFUND_FAILED_INSUFFICIENT_FUNDS',causa:'Saldo insuficiente na conta PayPal'}
+   ],
+   chat:['Vou verificar o que está impedindo o reembolso. Você consegue confirmar: o pagamento original foi realizado há menos de 180 dias? E a conta PayPal tem saldo disponível ou conta bancária vinculada? Com essas informações consigo identificar a causa rapidamente.']
+  }
+];
+
+const lP={woo:'WooCommerce',shopify:'Shopify',custom:'Loja própria'};
+const bP={woo:'badge-woo',shopify:'badge-shop',custom:'badge-custom'};
+let sel=null, filtro='todos';
+
+function filtrar(c,btn){
+  filtro=c;
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid(); fecharDetalhe();
+}
+
+function renderGrid(){
+  const g=document.getElementById('grid');
+  const lista=filtro==='todos'?S:S.filter(s=>s.cat.includes(filtro));
+  g.innerHTML=lista.map(s=>`
+    <div class="script-card${sel===s.id?' active':''}" onclick="abrirDetalhe(${s.id})">
+      <div class="sc-header">
+        <div class="sc-icon" style="background:${s.cor};color:${s.corT}">${s.icon}</div>
+        <div class="sc-title">${s.title}</div>
+      </div>
+      <div class="sc-plat">${s.plat.length===3?'<span class="badge badge-all">Todas as plataformas</span>':s.plat.map(p=>`<span class="badge ${bP[p]}">${lP[p]}</span>`).join('')}</div>
+      <div class="sc-desc">${s.desc}</div>
+      <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:8px">${s.causas.map(c=>`<div class="cause-row"><div class="cause-dot" style="background:${s.dot}"></div>${c}</div>`).join('')}</div>
+    </div>`).join('');
+}
+
+function abrirDetalhe(id){
+  if(sel===id){fecharDetalhe();return;}
+  sel=id;
+  const s=S.find(x=>x.id===id);
+  const panel=document.getElementById('detail');
+
+  const platKeys=Object.keys(s.plats);
+  const platTabs=platKeys.map((k,i)=>`<button class="tab-btn${i===0?' active':''}" onclick="switchTab('plat-${k}-${id}',this,'platgroup-${id}')">${lP[k]}</button>`).join('');
+  const platContent=platKeys.map((k,i)=>`
+    <div class="tab-content${i===0?' active':''}" id="plat-${k}-${id}">
+      <div class="plat-block">${s.plats[k].map(c=>`<div class="plat-item">${c}</div>`).join('')}</div>
+    </div>`).join('');
+
+  const consoleHtml=s.console.length>0?`
+    <div class="script-section">
+      <div class="script-section-title">Erros do console (F12)</div>
+      <table class="console-table">
+        <thead><tr><th>Erro</th><th>Causa</th></tr></thead>
+        <tbody>${s.console.map(e=>`<tr><td style="font-family:monospace;font-size:11px">${e.erro}</td><td>${e.causa}</td></tr>`).join('')}</tbody>
+      </table>
+    </div>`:'';
+
+  panel.innerHTML=`
+    <div class="dp-title">${s.icon} ${s.title}</div>
+
+    <div style="display:flex;gap:6px;margin-bottom:2px">
+      <button class="tab-btn active" onclick="switchTab('tab-diag-${id}',this,'maingroup-${id}')">Diagnóstico</button>
+      <button class="tab-btn" onclick="switchTab('tab-plat-${id}',this,'maingroup-${id}')">Por plataforma</button>
+      <button class="tab-btn" onclick="switchTab('tab-chat-${id}',this,'maingroup-${id}')">Script do chat</button>
+      <button class="tab-btn" onclick="switchTab('tab-check-${id}',this,'maingroup-${id}')">Checklist</button>
+    </div>
+
+    <div class="tab-content active" id="tab-diag-${id}" data-group="maingroup-${id}">
+      <div class="step-list" style="margin-top:10px">${s.passos.map((p,i)=>`<div class="step-row"><div class="step-num">${i+1}</div><div class="step-text">${p}</div></div>`).join('')}</div>
+      ${s.dica?`<div class="tip-box"><strong>Dica:</strong> ${s.dica}</div>`:''}
+      ${s.aviso?`<div class="warn-box"><strong>Atenção:</strong> ${s.aviso}</div>`:''}
+      ${consoleHtml}
+    </div>
+
+    <div class="tab-content" id="tab-plat-${id}" data-group="maingroup-${id}">
+      <div style="margin-top:10px">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px" id="platgroup-${id}">${platTabs}</div>
+        ${platContent}
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-chat-${id}" data-group="maingroup-${id}">
+      <div style="margin-top:10px">
+        <div class="script-section-title">Como explicar ao cliente</div>
+        ${s.chat.map(c=>`<div class="chat-bubble">"${c}"</div>`).join('')}
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-check-${id}" data-group="maingroup-${id}">
+      <div style="margin-top:10px">
+        <div class="script-section-title">Antes de fechar o caso</div>
+        <div class="checklist">${s.passos.map((p,i)=>`<label class="check-item"><input type="checkbox" onchange="this.parentElement.style.opacity=this.checked?'0.5':'1'"> ${p}</label>`).join('')}</div>
+      </div>
+    </div>`;
+
+  panel.classList.add('open');
+  renderGrid();
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function switchTab(id,btn,group){
+  document.querySelectorAll(`[data-group="${group}"]`).forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const parent=btn.parentElement;
+  parent.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function fecharDetalhe(){
+  sel=null;
+  const p=document.getElementById('detail');
+  p.classList.remove('open');p.innerHTML='';
+  renderGrid();
+}
+
+renderGrid();
+</script>
